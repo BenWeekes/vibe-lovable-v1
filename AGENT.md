@@ -14,6 +14,18 @@ A Vite + React 18 + TypeScript app (React Router, Tailwind CSS, shadcn/ui) that 
 - **Do NOT modify files in `src/components/ui/`** — these are stock shadcn/ui components.
 - **Do NOT inline Agora SDK imports at file top level** — `agora-rtc-sdk-ng` and `agora-rtm` require browser APIs and crash SSR. They must be dynamically imported inside async functions.
 - **Do NOT add transcripts to the chat UI on RTM send** — the agent echoes them back via the RTC stream-message listener, so they appear automatically.
+- **Do NOT modify `src/components/AgoraLogo.tsx`** — it contains the exact Agora logo SVG path. Do not regenerate or substitute with a placeholder.
+
+## Assets
+
+- **`src/components/AgoraLogo.tsx`** — The Agora logo as an inline React SVG component (cyan "a" shape, `#00C2FF` fill). This file must be kept exactly as provided — do not regenerate or approximate the SVG path data.
+
+## Styling Rules
+
+- All primary action buttons (mic toggle when unmuted, chat send button) use `bg-primary text-primary-foreground` — they must match visually
+- Destructive actions (hangup button) use `bg-destructive text-destructive-foreground`
+- Muted/disabled state (mic when muted) uses `bg-muted text-muted-foreground`
+- The theme is defined in `src/index.css` via CSS custom properties — do not hardcode colors, use the Tailwind theme tokens (`primary`, `muted`, `destructive`, etc.)
 
 ## File Structure
 
